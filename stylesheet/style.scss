@@ -1,0 +1,93 @@
+$body-bg: #f0f0f0;
+$primary-color: #333;
+$secondary-color: #666;
+$submit-bg: #4CAF50;
+$submit-bg-hover: #3e8e41;
+$login-bg: #333;
+$login-color: #fff;
+$login-bg-hover: #666;
+$link-color: #333;
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: $body-bg;
+}
+
+h1 {
+  text-align: center;
+  color: $primary-color;
+}
+
+form {
+  width: 400px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px #888;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: $secondary-color;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"], 
+input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+
+input[type="submit"] {
+  background-color: $submit-bg;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $submit-bg-hover;
+  }
+
+  &:active {
+    background-color: $submit-bg-hover;
+    box-shadow: none;
+  }
+}
+
+.login-button-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.login-button {
+  display: inline-block;
+  background-color: $login-bg;
+  color: $login-color;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 3px;
+  transition: background-color 0.2s ease-in-out;
+
+  &:hover {
+    background-color: $login-bg-hover;
+  }
+}
+
+a {
+  color: $link-color;
+  text-align: center;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
