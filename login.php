@@ -1,57 +1,43 @@
-<!-- login.php -->
+<?php
+session_start();
 
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Profile page</title>
-    <link rel="stylesheet" href="style.scss">
-
-</head>
-<body>
-
-	<h1>Profile Page</h1>
-
-
-    <?php
-// Connect to the database
-$host = "localhost";
+$servername = "localhost";
 $username = "root";
-$password= "";
+$password = "";
 $dbname = "user_db";
-$conn = new mysqli($host, $username, $password, $dbname);
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check connection
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+  die("Connection failed: " . $conn->connect_error);
 }
 
-// Get user input from the form
-$firstname = $_POST['Firstname'];
+// Get form data
+$username = $_POST['username'];
 $password = $_POST['password'];
 
-// Retrieve user information from the database based on input
-$sql = "SELECT * FROM users WHERE Firstname = '$firstname' AND password = '$password'";
+// Check if user exists in database
+$sql = "SELECT * FROM users WHERE username='$username' AND password='$password'";
 $result = $conn->query($sql);
 
-// Display user information on the page if user is found
 if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        echo "Welcome! ".$row["Firstname"] ."<br>";
-        echo "Email: " . $row["email"] . "<br>";
-        echo "Contact No: " . $row["contact_no"] . "<br><br>";
-    }
+// User is authenticated, set session variables and redirect to profile page
+$row = $result->fetch_assoc();
+$_SESSION['username'] = $row['username'];
+$_SESSION['email'] = $row['email'];
+$_SESSION['contact_no'] = $row['contact_no'];
+header("Location: profile.php");
 } else {
-    echo "User not found or invalid credentials.";
+// User is not authenticated, redirect to login page with error message
+$_SESSION['login_error'] = "Invalid username or password";
+header("Location: login.php");
 }
 
-// Close connection
 $conn->close();
 ?>
 
 
-<div class="login-button-container">
-      <a href="update.php" class="login-button">Click here to update your profile?</a>
-    </div>
 
-</body>
-</html>
+

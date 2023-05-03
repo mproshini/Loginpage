@@ -1,37 +1,35 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8">
     <title>Registration Form</title>
-    <link rel="stylesheet" href="stylesheet/style.css">
+    <link rel="stylesheet" href="Stylesheet/style.css">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
   </head>
   <body>
     <h1>Registration Form</h1>
-    <form id="registration-form" method="post" action="process-registration.php">
-      <label for="Firstname">Firstname:</label>
-      <input type="text" name="Firstname" id="Firstname" required>
-      
+    <form id="registration-form" action="register.php" method="POST">
+      <label for="username">Username:</label>
+      <input type="text" name="username" id="username" required>
+
       <label for="email">Email:</label>
       <input type="email" name="email" id="email" required>
-      
-      <label for="password">password:</label>
+
+      <label for="password">Password:</label>
       <input type="password" name="password" id="password" required>
-      
-      <label for="confirm-password">Confirm password:</label>
+
+      <label for="confirm-password">Confirm Password:</label>
       <input type="password" name="confirm-password" id="confirm-password" required>
-      
+
       <label for="contact-no">Contact No:</label>
-      <input type="tel" name="contact-no" id="contact-no" required>
-      
-      <input type="submit" value="Register">
+      <input type="text" name="contact-no" id="contact-no" required>
+
+      <button type="submit" id="submit-btn">Register</button>
+      <a href="login.html">Already have an account? Login here</a>
     </form>
-    
-    <div class="login-button-container">
-      <a href="login.html" class="login-button">Already have an account? Login</a>
-    </div>
 
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/jquery.min.js"></script>
-    <script src="script.js"></script>
+  <script src="script.js"></script>
   </body>
 </html>
