@@ -5,22 +5,18 @@
     <link rel="stylesheet" href="stylesheet/style.css">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
   </head>
-<body>
-  <h1>Login</h1>
-  <form id="login-form" method="post" action="login.php">
-    <label for="Firstname">Firstname:</label>
-    <input type="text" name="Firstname" id="Firstname" required>
-    <br>
-    <label for="password">password:</label>
-    <input type="password" name="password" id="password" required>
-    <br>
-    <input type="submit" value="Login">
-  </form>
-  <br>
-  <div class="login-button-container">
-    <a href="register.html" class="login-button">Don't have an account? Register</a>
-  </div>
+  <body>
+    <h1>Login Form</h1>
+    <form id="login-form" action="login.php" method="POST">
+      <label for="username">Username:</label>
+      <input type="text" name="username" id="username" required>
 
+      <label for="password">Password:</label>
+      <input type="password" name="password" id="password" required>
+
+      <button type="submit" id="submit-btn">Login</button>
+      <a href="register.html">Create a new account?Register Here</a>
+    </form>
   <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/jquery.min.js"></script>
   <script src="script.js"></script>
